@@ -50,7 +50,7 @@ public class MP_ec22479 extends JFrame {
 
     //********************************************** MISCELLANEOUS ************************************************//
 
-    protected static final int gamePace = 1000; //How long (in ms) should the program wait after giving information to the user
+    protected static final int gamePace = 2000; //How long (in ms) should the program wait after giving information to the user
 
     // ADVANCED
     // If your new rooms don't work nicely with my house, you can use your own house, BUUUTT, you'll have to add the changeIcon method to your house.
