@@ -1,24 +1,23 @@
-package OOP.ec22479.A8;// Mohamed Ait-Hocine
+package OOP.ec22479.MP;
+// Mohamed Ait-Hocine
 // Assignment 4
 // 23/02/2023
 // V1.1
 // Changed absolutely nothing.
 
-
 class Room_ec22479 extends Room {
-    public Direction visit(Visitor visitor, Direction directionVistorArrivesFrom) throws InterruptedException {
-        A8.a8.imagePanel.setIcon(A8.a8.mosRoom);
-        String direction = "";
-        if (directionVistorArrivesFrom == Direction.TO_NORTH) {
+    public Direction visit(Visitor visitor, Direction directionVisitorArrivesFrom) {
+        String direction;
+        if (directionVisitorArrivesFrom == Direction.TO_NORTH) {
             direction = "south.";
         }
-        else if (directionVistorArrivesFrom == Direction.TO_EAST) {
+        else if (directionVisitorArrivesFrom == Direction.TO_EAST) {
             direction = "west.";
         }
-        else if (directionVistorArrivesFrom == Direction.TO_SOUTH) {
+        else if (directionVisitorArrivesFrom == Direction.TO_SOUTH) {
             direction = "north.";
         }
-        else if (directionVistorArrivesFrom == Direction.TO_WEST) {
+        else if (directionVisitorArrivesFrom == Direction.TO_WEST) {
             direction = "east.";
         }
         else {direction = ".. where did you come from?";}
@@ -75,11 +74,9 @@ class Room_ec22479 extends Room {
         
 
         final Item BrokenGlass = new Item("Broken Glass");
-        
-        if (selectedChoice == 'b') {
-            visitor.tell("The mirrors shatter, and a door is revealed. \nYou decide to pick up some broken glass.");
-            visitor.giveItem(BrokenGlass);
-        }
+
+        visitor.tell("The mirrors shatter, and a door is revealed. \nYou decide to pick up some broken glass.");
+        visitor.giveItem(BrokenGlass);
         return Direction.TO_NORTH;
         
     }

@@ -1,4 +1,4 @@
-package OOP.ec22479.A8;//import java.util.List;
+package OOP.ec22479.MP;//import java.util.List;
 
 class Direction {
        

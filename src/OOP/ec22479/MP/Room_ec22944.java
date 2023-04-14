@@ -1,10 +1,9 @@
-package OOP.ec22479.A8;
+package OOP.ec22479.MP;
 
 class Room_ec22944 extends Room
 {
-    public Direction visit(Visitor visitor, Direction directionVistorArrivesFrom) throws InterruptedException
+    public Direction visit(Visitor visitor, Direction directionVisitorArrivesFrom)
     {
-        A8.a8.imagePanel.setIcon(A8.a8.tanvirsRoom);
         String context = "a) Look under my pillow, b) Play games on my computer, c) Ransack my room";
         char[] choices = {'a', 'b', 'c'};
         Item WisdomTooth = new Item("T Man's Wisdom Tooth");
@@ -30,8 +29,7 @@ class Room_ec22944 extends Room
             visitor.tell("You wasted all your time playing The Sims 4. I hope you're proud of yourself.");
         }
 
-        else if(visitorFirstChoice == 'c')
-        {
+        else {
             visitor.tell("T Man walked in on you trying to steal his beloved possessions. You panicked and gave him your gold. Serves you right!");
             visitor.takeGold(10);
         }

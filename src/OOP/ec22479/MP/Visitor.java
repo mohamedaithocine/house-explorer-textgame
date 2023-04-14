@@ -1,17 +1,17 @@
-package OOP.ec22479.A8;
+package OOP.ec22479.MP;
 
 interface Visitor {
     
-    void tell(String messageForVisitor) throws InterruptedException;
+    void tell(String messageForVisitor);
 
     void getItems();
     
     char getChoice( // Returns visitor's choice.
-                   String descriptioOfChoices,
+                   String descriptionOfChoices,
                    char[] arrayOfPossibleChoices);
     
     boolean giveItem( // Returns true if item is accepted.
-                     Item itemGivenToVisitor) throws InterruptedException;
+                     Item itemGivenToVisitor);
     
     boolean hasIdenticalItem( // Returns true if visitor has the identical (==) item.
                              Item itemToCheckFor);

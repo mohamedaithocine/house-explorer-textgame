@@ -1,19 +1,18 @@
-package OOP.ec22479.A8;
+package OOP.ec22479.MP;
 
 import java.util.Random;
 
 public class Room_ec22480 extends Room {
 
 	Item[] items = new Item[] {new Item("Poison Vile"),
-			new Item("Frog Tongue"),
-			new Item("Awakening Bell")};
+			       new Item("Frog Tongue"),
+				   new Item("Awakening Bell")};
 
 	int[] prices = new int[] {4, 8, 10};
 	boolean hasTmansWisdomTooth = false;
 
-	public Direction visit(Visitor visitor, Direction from) throws InterruptedException
+	public Direction visit(Visitor visitor, Direction from)
 	{
-		A8.a8.imagePanel.setIcon(A8.a8.zubairsRoom);
 		if (!hasTmansWisdomTooth)
 		{
 			visitor.tell("Welcome to Hoppers Market\nZUBAIR: What would you like to purchase?");
@@ -62,16 +61,20 @@ public class Room_ec22480 extends Room {
 
 			if (visitor.hasEqualItem(new Item("T Man's Wisdom Tooth"))) 
 			{
-				visitor.tell("Oh what's this.\nYour pocket seems to be shining."
-						+ "\nYou take out T Man's Wisdom Tooth as a blinding light fills the room."
-						+ "\nZUBAIR: THAT IS...!\nZubair has a shocked look on his face."
-						+ "\nZUBAIR: LEAVE AT ONCE AND NEVER RETURN!"
-						+ "\n\nAs you leave the shop begins crumbling around you. ZUBAIR runs out of the shop in lightning speed and lightly brushes your shoulder."
-						+ "\nHe seems to be  holding a few coins."
-						+ "\nIt seems he robbed you of 5 coins amidst the chaos.");
+				visitor.tell("""
+						Oh what's this.
+						Your pocket seems to be shining.
+						You take out T Man's Wisdom Tooth as a blinding light fills the room.
+						ZUBAIR: THAT IS...!
+						Zubair has a shocked look on his face.
+						ZUBAIR: LEAVE AT ONCE AND NEVER RETURN!
+
+						As you leave the shop begins crumbling around you. ZUBAIR runs out of the shop in lightning speed and lightly brushes your shoulder.
+						He seems to be holding a few coins.
+						It seems he robbed you of 5 coins amidst the chaos.""");
+				GUIVisitor_ec22479.pause(7000);
 				visitor.takeGold(5);
 				hasTmansWisdomTooth = true;
-				Thread.sleep(4000);
 			}
 		}
 		else 
@@ -84,7 +87,8 @@ public class Room_ec22480 extends Room {
 					   + "\n\nChaos and destruction will follow he who holds T Man's Wisdom Tooth."
 					   + "\nCould this be related to the destruction here."
 					   + "\nYou exit the room.");
-			
+			House_ec22479.hasTmansWisdomTooth = true;
+			GUIVisitor_ec22479.pause(7000);
 		}
 		return Direction.opposite(from);
 	}
