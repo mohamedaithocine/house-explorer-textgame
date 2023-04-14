@@ -38,8 +38,7 @@ public class House_ec22479 extends House {
 
 
         while (true) {
-
-            // MOHAMED
+            // ROOM 1
             if (currentRoom.equals("Room1")) {
                 if (d == Direction.TO_NORTH) {
                 currentRoom = "Room2";
@@ -51,7 +50,8 @@ public class House_ec22479 extends House {
                 }
                 else if (d == Direction.TO_SOUTH) {
                     changeIcon(MPec22479.homeIcon);
-                    v.tell("You've had enough of this house and just left back where you came from :)");
+                    v.tell("You've had enough of this house and just left :)");
+                    return d;
                 }
                 else if (d == Direction.TO_WEST) {
                     exitThroughWindow(v);
@@ -59,19 +59,22 @@ public class House_ec22479 extends House {
                 }
             }
 
+
+            // ROOM 2
             if (currentRoom.equals("Room2")) {
                 if (d == Direction.TO_NORTH) {
-                    if (!hasTmansWisdomTooth) { //This works only with the default room2, this can be removed if room2 is changed.
-                        currentRoom = "Room3";
-                        d = enterRoom(room3, v, d, MPec22479.Room3Icon);
-                    } else {
-                        MPec22479.imagePanel.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("tanvirsRoom2.jpg"))));
+                    if (hasTmansWisdomTooth) {
+                        MPec22479.Room2Icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\tanvirsRoom2.jpg")));
+                        MPec22479.imagePanel.setIcon(MPec22479.Room2Icon);
                         String exitDirections = "a) North, b) East, c) South, d) West";
                         char[] exitChoices = { 'a', 'b', 'c', 'd' };
                         v.tell("This room seems to be just rubble now.. please try another exit");
                         char visitorExitChoice = v.getChoice(exitDirections, exitChoices);
+                        if (visitorExitChoice == 'a') {
+                            d = Direction.TO_NORTH;
+                        }
 
-                        if (visitorExitChoice == 'b') {
+                        else if (visitorExitChoice == 'b') {
                             d = Direction.TO_EAST;
                         }
 
@@ -83,6 +86,10 @@ public class House_ec22479 extends House {
                             d = Direction.TO_WEST;
                         }
 
+                    }
+                    else {
+                        currentRoom = "Room3";
+                        d = enterRoom(room3, v, d, MPec22479.Room3Icon);
                     }
 
                 }
@@ -99,6 +106,8 @@ public class House_ec22479 extends House {
                 }
             }
 
+
+            // ROOM 3
             if (currentRoom.equals("Room3")) {
                 if (d == Direction.TO_NORTH) {
                     exitThroughWindow(v);
@@ -119,6 +128,8 @@ public class House_ec22479 extends House {
 
             }
 
+
+            // ROOM 4
             if (currentRoom.equals("Room4")) {
                 if (d == Direction.TO_NORTH) {
                     exitThroughWindow(v);

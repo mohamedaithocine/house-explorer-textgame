@@ -5,7 +5,8 @@ import java.util.Objects;
 
 public class MP_ec22479 extends JFrame {
 
-    //Hello! This mini project has been modified a little bit to make room changes easier, however, for the best user experience, keep using this house that I made
+    // Hello! For the best user experience, keep using this house that I made
+    // If this is Adam reading, you can find my collection class in GUIVisitor_ec22479.java lines 3, 8, 62, 68
 
 
     //*************************************************** IMAGES ***************************************************//
@@ -41,21 +42,23 @@ public class MP_ec22479 extends JFrame {
       USER ENTERS FROM HERE                                                                                        */
 
     // Change the rooms of the house you'd like to visit
-    protected static final Room room1 = new Room_ec22479();
-    protected static final Room room2 = new Room_ec22944();
-    protected static final Room room3 = new Room_ec22480();
-    protected static final Room room4 = new Room_ec22717();
+    // These rooms have been modified to improve them, however you can use the original unmodified files by removing Modified_ from each room name
+    protected static final Room room1 = new Modified_Room_ec22479();
+    protected static final Room room2 = new Modified_Room_ec22944();
+    protected static final Room room3 = new Modified_Room_ec22480();
+    protected static final Room room4 = new Modified_Room_ec22717();
 
     //********************************************** MISCELLANEOUS ************************************************//
-    protected static final int gamePace = 100; //How long (in ms) should the program wait after giving information to the user
+
+    protected static final int gamePace = 1000; //How long (in ms) should the program wait after giving information to the user
 
     // ADVANCED
-    // If your new rooms don't work nicely with my house, you can use your own house, BUUUTT, you'll have to add the changeIcon method to your rooms.
+    // If your new rooms don't work nicely with my house, you can use your own house, BUUUTT, you'll have to add the changeIcon method to your house.
     // It will look something like: MP_ec22479.changeIcon(MP_ec22479.MPec22479.Room1Icon);
     private final House house = new House_ec22479();
 
     // If you would like to change the direction you enter the house from, change this :D
-    static Direction entryDirection = Direction.UNDEFINED;
+    static Direction entryDirection = Direction.TO_NORTH;
 
 
 

@@ -56,17 +56,14 @@ class GUIVisitor_ec22479 implements Visitor {
     public boolean giveItem(Item x) {
         boolean trueOrFalse = false;
         MP_ec22479.MPec22479.takeItem = true;
-        MP_ec22479.MPec22479.choiceOutput.setText("You are being offered: "+x.name);
-        try {
-            pause(MP_ec22479.gamePace);
-            if (getChoice("Do you accept (y/n)?", yOrN) == 'y') {
-                items.add(x);
-                trueOrFalse = true; }
+        MP_ec22479.MPec22479.choiceOutput.setText("You are being offered: " + x.name);
+        pause(MP_ec22479.gamePace);
+        if (getChoice("Do you accept (y/n)?", yOrN) == 'y') {
+            items.add(x);
+            trueOrFalse = true;
         }
-        catch (Exception e) {
-            System.out.println("THIS IS VERY BAD");
-            Thread.currentThread().interrupt();}
         return trueOrFalse;
+
     }
 
     public void getItems() {
@@ -81,7 +78,7 @@ class GUIVisitor_ec22479 implements Visitor {
 
     public boolean hasIdenticalItem(Item x) {
         for (Item item : items)
-            if (x == item)
+            if (x.name.equals(item.name))
                 return true;
         return false;
     }

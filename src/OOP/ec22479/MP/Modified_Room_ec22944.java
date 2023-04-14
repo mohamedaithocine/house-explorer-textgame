@@ -1,8 +1,11 @@
 package OOP.ec22479.MP;
 
-class Room_ec22944 extends Room
+import javax.swing.*;
+import java.util.Objects;
+
+class Modified_Room_ec22944 extends Room
 {
-    public Direction visit(Visitor visitor, Direction directionVistorArrivesFrom)
+    public Direction visit(Visitor visitor, Direction directionVisitorArrivesFrom)
     {
         String context = "a) Look under my pillow, b) Play games on my computer, c) Ransack my room";
         char[] choices = {'a', 'b', 'c'};
@@ -20,17 +23,19 @@ class Room_ec22944 extends Room
 
         if(visitorFirstChoice == 'a')
         {
+            MP_ec22479.changeIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\tanvirsRoom\\wisdomTooth.jpg"))));
             visitor.tell("You found my wisdom tooth. Hope you find it useful later!");
             visitor.giveItem(WisdomTooth);
         }
 
         else if(visitorFirstChoice == 'b')
         {
+            MP_ec22479.changeIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\tanvirsRoom\\playedGames.jpg"))));
             visitor.tell("You wasted all your time playing The Sims 4. I hope you're proud of yourself.");
         }
 
-        else if(visitorFirstChoice == 'c')
-        {
+        else {
+            MP_ec22479.changeIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\tanvirsRoom\\angryTMan.jpg"))));
             visitor.tell("T Man walked in on you trying to steal his beloved possessions. You panicked and gave him your gold. Serves you right!");
             visitor.takeGold(10);
         }
