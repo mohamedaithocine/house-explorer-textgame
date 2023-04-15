@@ -17,7 +17,7 @@ public class Room_ec22480 extends Room {
 		{
 			visitor.tell("Welcome to Hoppers Market\nZUBAIR: What would you like to purchase?");
 			char choice = visitor.getChoice(
-							"\na) " + items[0].name + ": " + prices[0] + " Gold Pieces" +
+					"\na) " + items[0].name + ": " + prices[0] + " Gold Pieces" +
 							"\nb) " + items[1].name + ": " + prices[1] + " Gold Pieces" +
 							"\nc) " + items[2].name + ": " + prices[2] + " Gold Pieces" +
 							"\nd) EXIT" , 
@@ -36,7 +36,7 @@ public class Room_ec22480 extends Room {
 				itemChosen = items[1];
 				price = prices[1];
 			}
-			else if (choice == 'c') 
+			else if (choice == 'c')
 			{
 				itemChosen = items[2];
 				price = prices[2];
@@ -49,7 +49,7 @@ public class Room_ec22480 extends Room {
 			if (visitor.hasEqualItem(itemChosen)) 
 			{
 				visitor.tell("ZUBAIR: I am sensing that you may have already purchased item: " + itemChosen.name + 
-						     ". As a sign of gratitude, you may take the item at a discounted price of " + (price / 2) + " Gold Pieces.");
+						     ".\nAs a sign of gratitude, you may take the item at a discounted price of " + (price / 2) + " Gold Pieces.");
 				price /= 2;
 			}
 
@@ -65,9 +65,8 @@ public class Room_ec22480 extends Room {
 						+ "\nYou take out T Man's Wisdom Tooth as a blinding light fills the room."
 						+ "\nZUBAIR: THAT IS...!\nZubair has a shocked look on his face."
 						+ "\nZUBAIR: LEAVE AT ONCE AND NEVER RETURN!"
-						+ "\n\nAs you leave the shop begins crumbling around you. ZUBAIR runs out of the shop in lightning speed and lightly brushes your shoulder."
-						+ "\nHe seems to be  holding a few coins."
-						+ "\nIt seems he robbed you of 5 coins amidst the chaos.");
+						+ "\n\nAs you leave the shop begins crumbling around you. ZUBAIR runs out of the shop at lightning speed and lightly brushes your shoulder."
+						+ "\nHe seems to be holding a few coins.");
 				visitor.takeGold(5);
 				hasTmansWisdomTooth = true;
 			}
@@ -82,6 +81,9 @@ public class Room_ec22480 extends Room {
 					   + "\n\nChaos and destruction will follow he who holds T Man's Wisdom Tooth."
 					   + "\nCould this be related to the destruction here."
 					   + "\nYou exit the room.");
+			
+			visitor.giveItem(items[itemNum]);
+			visitor.giveGold(2);
 			
 		}
 		return Direction.opposite(from);

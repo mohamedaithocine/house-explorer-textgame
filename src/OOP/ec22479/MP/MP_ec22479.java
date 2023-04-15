@@ -45,7 +45,7 @@ public class MP_ec22479 extends JFrame {
     // Change the rooms of the house you'd like to visit
     // These rooms have been modified to improve them, however you can use the original unmodified files by removing Modified_ from each room name
     protected static final Room room1 = new Modified_Room_ec22479();
-    protected static final Room room2 = new Modified_Room_ec22944();
+    protected static final Room room2 = new Modified_Room_ec22944(); // The original version of this room is a little buggy (selecting b, c or d requires multiple clicks), so I'd recommend to keep using the modified version
     protected static final Room room3 = new Modified_Room_ec22480();
     protected static final Room room4 = new Room_ec22717(); // I've kept this one unchanged to hopefully get full marks? But feel free to change the others too
 
