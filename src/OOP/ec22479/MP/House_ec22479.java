@@ -5,6 +5,9 @@ import static OOP.ec22479.MP.MP_ec22479.*;
 
 public class House_ec22479 extends House {
 
+    // Welcome to the house, it's a little messy
+
+    // Initialising things to get the house ready
     static ImageIcon brokenWindow = new ImageIcon(Objects.requireNonNull(House_ec22479.class.getResource("images\\brokenWindow.jpg")));
     static ImageIcon backDoorExit = new ImageIcon(Objects.requireNonNull(House_ec22479.class.getResource("images\\backDoorExit.jpg")));
     private final Room room1 = MP_ec22479.room1;
@@ -14,17 +17,40 @@ public class House_ec22479 extends House {
     String currentRoom;
     static boolean hasTmansWisdomTooth = false;
 
+    // Method for when user leaves house that penalises them
     public static void exitThroughWindow(Visitor v) {
         changeIcon(brokenWindow);
         v.tell("THIS GLASS ISN'T GOING TO FIX ITSELF! GIVE ME 10 GOLD!!");
         v.takeGold(10);
     }
 
+    // An enhanced visit method which changes icon, then visits a room
     public static Direction enterRoom(Room room, Visitor v, Direction d, ImageIcon icon) {
         changeIcon(icon);
         return room.visit(v,d);
     }
 
+
+    // Putting this here again. If you would like to change the room layout, mess around with the if statements
+    /* The current layout of the house is as follows:
+    |------------------------|
+    |                        |
+    |        Room 4          |
+    |                        |
+    |------------------------|------------------------|
+    |                        |                        |
+    |        Room 2          |        Room 3          |
+    |                        |                        |
+    |------------------------|------------------------|
+    |                        |
+    |        Room 1          |
+    |                        |
+    |------------------------|
+                ↑
+      USER ENTERS FROM HERE  */
+
+
+    // The good ol' visit method.
     public Direction visit(Visitor v, Direction d){
         changeIcon(MPec22479.homeIcon);
         v.tell("Welcome to the humble abode.");

@@ -6,7 +6,8 @@ import java.util.Objects;
 public class MP_ec22479 extends JFrame {
 
     // Hello! For the best user experience, keep using this house that I made
-    // If this is Adam reading, you can find my collection class in GUIVisitor_ec22479.java lines 3, 8, 62, 68
+    // If this is Adam reading, you can find my collection class in GUIVisitor_ec22479.java in lines 2, 8. Usage of it is then sprinkled throughout that class
+    // I tried to sort things out so that you can understand what I tried to do within 5 minutes
 
 
     //*************************************************** IMAGES ***************************************************//
@@ -46,7 +47,7 @@ public class MP_ec22479 extends JFrame {
     protected static final Room room1 = new Modified_Room_ec22479();
     protected static final Room room2 = new Modified_Room_ec22944();
     protected static final Room room3 = new Modified_Room_ec22480();
-    protected static final Room room4 = new Modified_Room_ec22717();
+    protected static final Room room4 = new Room_ec22717(); // I've kept this one unchanged to hopefully get full marks? But feel free to change the others too
 
     //********************************************** MISCELLANEOUS ************************************************//
 
@@ -55,6 +56,7 @@ public class MP_ec22479 extends JFrame {
     // ADVANCED
     // If your new rooms don't work nicely with my house, you can use your own house, BUUUTT, you'll have to add the changeIcon method to your house.
     // It will look something like: MP_ec22479.changeIcon(MP_ec22479.MPec22479.Room1Icon);
+    // I have a placeholder icon set in place if you don't feel like setting one yourself
     private final House house = new House_ec22479();
 
     // If you would like to change the direction you enter the house from, change this :D
@@ -66,6 +68,7 @@ public class MP_ec22479 extends JFrame {
     // I would advise not to touch the rest of the code below, unless you know what you're doing!
 
     //*************************************************************************************************************//
+    // The code below sets instantiates some ImageIcons so that they're ready to be used throughout the program
     ImageIcon homeIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\" + homeImageLocation)));
     ImageIcon Room1Icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\" + room1ImageLocation)));
     ImageIcon Room2Icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\" + room2ImageLocation)));
@@ -73,10 +76,14 @@ public class MP_ec22479 extends JFrame {
     ImageIcon Room4Icon = new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\" + room4ImageLocation)));
     ImageIcon gameOverIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("images\\" + gameOverImageLocation)));
 
+
+    // Method made to change icons so that it's easier
     protected static void changeIcon(ImageIcon icon) {
             MPec22479.imagePanel.setIcon(icon);
         }
 
+
+    // Form Components
     protected JButton buttonA;
     protected JButton buttonB;
     protected JButton buttonC;
@@ -94,6 +101,8 @@ public class MP_ec22479 extends JFrame {
     protected boolean buttonClicked = false;
     protected boolean takeItem = false;
 
+
+    // The lovely constructor method!!1
     public MP_ec22479() {
         setContentPane(panelMain);
         setTitle("Mo's Maison");
@@ -111,7 +120,10 @@ public class MP_ec22479 extends JFrame {
         Inventory.addActionListener(e -> v.getItems());
 
     }
-    public static MP_ec22479 MPec22479 = new MP_ec22479();
+    // Made a global instance of this class, so that its methods can be called from every class
+    protected static MP_ec22479 MPec22479 = new MP_ec22479();
+
+    // Put visitor outside the main method, so it can be used for things like inventory
     private final Visitor v = new GUIVisitor_ec22479();
 
 

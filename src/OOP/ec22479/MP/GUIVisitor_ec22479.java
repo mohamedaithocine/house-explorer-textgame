@@ -1,9 +1,9 @@
 package OOP.ec22479.MP;
-
 import java.util.ArrayList;
 
 class GUIVisitor_ec22479 implements Visitor {
 
+    // Nothing really special here. I've added a collection and a pause method to delay the outputting of text so that the user has enough time to read
     private int purse;
     private final ArrayList<Item> items = new ArrayList<>();
 
