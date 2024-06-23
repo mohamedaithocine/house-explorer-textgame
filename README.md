@@ -1,8 +1,5 @@
 # Mini Project ec22479
-For the mini project, I've decided to improve my A8. It has a few uncommon but useful features 
-Cool features it has:
- - Images!!
- - You can change the rooms and houses
- - I don't have anything else to sell my project.. but it's good!
- 
- I hope you enjoy using and marking my mini project, and wish you the best of luck (and patience) as you continue marking
+![java_220624_000523](https://github.com/mohamedaithocine/house-explorer-textgame/assets/120286500/ed63fdfe-35cc-4437-b2e8-2de52d78f766)
+
+A 'house' with interesting rooms all created using Java.
+The main focus of this project was to get comfortable with using classes created by others, making code that is usable by others and putting the house in a neat UI
